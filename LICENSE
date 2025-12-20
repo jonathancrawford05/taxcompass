@@ -1,0 +1,50 @@
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3, 19 November 2007
+
+Copyright (C) 2024 TaxCompass Contributors
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+=============================================================================
+
+COMMERCIAL LICENSING
+
+TaxCompass is dual-licensed under AGPL-3.0 for open source use and
+a commercial license for proprietary use.
+
+For commercial licensing inquiries, please contact: license@taxcompass.io
+
+Commercial License Options:
+- One-time license: $5,000
+- Monthly subscription: $500/month
+
+Commercial licenses include:
+- Removal of AGPL-3.0 restrictions
+- White-label deployment rights
+- Priority support
+- Custom feature development
+
+=============================================================================
+
+ADDITIONAL TERMS
+
+Network Use Disclosure:
+Under the AGPL-3.0, if you modify this software and make it available
+over a network, you must make the complete corresponding source code
+available to users of that network service.
+
+=============================================================================
+
+For the full text of the GNU Affero General Public License v3.0, see:
+https://www.gnu.org/licenses/agpl-3.0.html

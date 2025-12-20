@@ -1,0 +1,32 @@
+# Knowledge Base Directory
+
+This directory contains tax law documents and resources used for RAG.
+
+Due to copyright and size constraints, tax documents are not included in the repository.
+
+## Required Documents (Canada)
+
+- CRA Folio S5-F1-C1 (Residency Determination)
+- Form NR73 Guide
+- Tax Treaties (Canada-UAE, Canada-USA, etc.)
+
+## Directory Structure
+
+```
+knowledge_base/
+├── canada/
+│   ├── cra_folio_s5_f1_c1.pdf
+│   ├── form_nr73_guide.pdf
+│   └── treaties/
+├── usa/
+├── uae/
+└── uk/
+```
+
+## How to Populate
+
+Download tax documents from official sources:
+- Canada: https://www.canada.ca/en/revenue-agency.html
+- USA: https://www.irs.gov/
+- UAE: https://tax.gov.ae/
+- UK: https://www.gov.uk/government/organisations/hm-revenue-customs
