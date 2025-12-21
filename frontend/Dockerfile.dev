@@ -2,15 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies
+# Copy package files
 COPY package.json package-lock.json* ./
-RUN npm ci
-
-# Copy application files
-COPY . .
 
 # Expose port
 EXPOSE 3000
 
-# Run in development mode
-CMD ["npm", "run", "dev"]
+# Install dependencies and run dev server
+# This ensures dependencies are installed even with volume mounts
+CMD sh -c "npm ci && npm run dev"
