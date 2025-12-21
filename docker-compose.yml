@@ -26,11 +26,8 @@ services:
       - "6334:6334"
     volumes:
       - qdrant_data:/qdrant/storage
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    # Health check removed - Qdrant image doesn't include curl/wget
+    # The service will be available once the container is running
 
   # Redis (for caching and rate limiting)
   redis:
@@ -87,7 +84,7 @@ services:
       postgres:
         condition: service_healthy
       qdrant:
-        condition: service_healthy
+        condition: service_started
       redis:
         condition: service_healthy
     volumes:
