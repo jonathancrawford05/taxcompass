@@ -14,20 +14,19 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
-  // Experimental features
-  experimental: {
-    serverActions: true,
-  },
-
   // API rewrites for backend proxy
   async rewrites() {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+        destination: `${apiUrl}/api/:path*`,
       },
     ];
   },
+
+  // Output configuration for standalone builds
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
