@@ -39,10 +39,10 @@
     "tailwindcss-animate": "^1.0.7",
     "postcss": "^8.4.33",
     "autoprefixer": "^10.4.17",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.1.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "@typescript-eslint/eslint-plugin": "^6.19.0"
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.1.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0"
   },
   "engines": {
     "node": ">=20.0.0",
