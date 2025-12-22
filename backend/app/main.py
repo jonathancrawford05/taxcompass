@@ -45,11 +45,13 @@ async def health():
 
 
 # Import and include routers
-# from app.api.v1 import auth, analysis, scenarios, reports
-# app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
-# app.include_router(analysis.router, prefix="/api/v1/analysis", tags=["analysis"])
-# app.include_router(scenarios.router, prefix="/api/v1/scenarios", tags=["scenarios"])
-# app.include_router(reports.router, prefix="/api/v1/reports", tags=["reports"])
+from app.api.v1 import analysis
+
+app.include_router(
+    analysis.router,
+    prefix="/api/v1/analysis",
+    tags=["analysis"]
+)
 
 
 if __name__ == "__main__":
