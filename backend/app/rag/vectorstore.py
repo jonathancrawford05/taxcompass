@@ -135,11 +135,11 @@ class VectorStoreManager:
         """
         try:
             info = self.client.get_collection(self.collection_name)
+            # Qdrant API: points_count is the total number of vectors
             return {
                 "name": self.collection_name,
-                "vectors_count": info.vectors_count,
-                "points_count": info.points_count,
-                "status": info.status
+                "points_count": info.points_count if hasattr(info, 'points_count') else 0,
+                "status": info.status if hasattr(info, 'status') else "unknown"
             }
         except Exception as e:
             logger.error(f"Failed to get collection info: {str(e)}")
