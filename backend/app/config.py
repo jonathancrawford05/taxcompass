@@ -28,7 +28,7 @@ class Settings(BaseSettings):
 
     # LLM Configuration
     OLLAMA_BASE_URL: str = "http://localhost:11434"
-    OLLAMA_MODEL: str = "llama3.1:8b"
+    OLLAMA_MODEL: str = "llama3.1:latest"
 
     # Azure OpenAI (Fallback)
     AZURE_OPENAI_ENDPOINT: str = ""
