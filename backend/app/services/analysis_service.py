@@ -35,6 +35,10 @@ class AnalysisService:
         Returns:
             Created Analysis model
         """
+        # Convert user_profile to JSON-serializable dict
+        # Use model_dump with mode='json' to convert dates to strings
+        user_profile_dict = analysis_data.user_profile.model_dump(mode='json')
+
         # Create analysis record
         analysis = Analysis(
             user_id=user_id,
@@ -42,7 +46,7 @@ class AnalysisService:
             origin_country=analysis_data.origin_country,
             destination_country=analysis_data.destination_country,
             departure_date=analysis_data.departure_date,
-            user_profile=analysis_data.user_profile.dict(),
+            user_profile=user_profile_dict,
             status=AnalysisStatus.PENDING,
         )
 
