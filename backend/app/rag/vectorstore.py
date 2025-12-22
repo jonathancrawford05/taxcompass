@@ -107,20 +107,23 @@ class VectorStoreManager:
             List of search results with content and metadata
         """
         try:
+            # Use LangChain vectorstore for search
             vectorstore = self.get_vectorstore()
-            results = vectorstore.similarity_search_with_score(
+
+            # Use similarity_search instead of similarity_search_with_score
+            # to avoid API compatibility issues
+            docs = vectorstore.similarity_search(
                 query=query,
                 k=k,
-                filter=filter
             )
 
             return [
                 {
                     "content": doc.page_content,
                     "metadata": doc.metadata,
-                    "score": score
+                    "score": 0.0  # Score not available with similarity_search
                 }
-                for doc, score in results
+                for doc in docs
             ]
         except Exception as e:
             logger.error(f"Search failed: {str(e)}")
