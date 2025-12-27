@@ -45,12 +45,18 @@ async def health():
 
 
 # Import and include routers
-from app.api.v1 import analysis, diagnostics
+from app.api.v1 import analysis, diagnostics, documents
 
 app.include_router(
     analysis.router,
     prefix="/api/v1/analysis",
     tags=["analysis"]
+)
+
+app.include_router(
+    documents.router,
+    prefix="/api/v1/documents",
+    tags=["documents"]
 )
 
 app.include_router(

@@ -5,6 +5,7 @@ import { apiClient, type AnalysisRequest, type Analysis } from '@/lib/api'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { FileUpload } from '@/components/FileUpload'
 
 export default function AnalysisPage() {
   const [loading, setLoading] = useState(false)
@@ -29,6 +30,63 @@ export default function AnalysisPage() {
     employer_country: 'AE',
     annual_income: '150000',
   })
+
+  const handleFieldsExtracted = (extractedFields: any) => {
+    // Auto-fill form with extracted fields
+    setFormData((prev) => {
+      const updated = { ...prev }
+
+      // Map extracted fields to form fields
+      if (extractedFields.citizenship && extractedFields.citizenship.length > 0) {
+        updated.citizenship = extractedFields.citizenship[0]
+      }
+      if (extractedFields.current_country) {
+        updated.current_country = extractedFields.current_country
+      }
+      if (extractedFields.destination_country) {
+        updated.destination_country = extractedFields.destination_country
+        updated.origin_country = extractedFields.current_country || prev.origin_country
+      }
+      if (extractedFields.departure_date) {
+        updated.departure_date = extractedFields.departure_date
+      }
+      if (extractedFields.marital_status) {
+        updated.marital_status = extractedFields.marital_status
+      }
+      if (extractedFields.has_spouse !== undefined) {
+        updated.has_spouse = extractedFields.has_spouse
+      }
+      if (extractedFields.spouse_location) {
+        updated.spouse_location = extractedFields.spouse_location
+      }
+      if (extractedFields.has_dependents !== undefined) {
+        updated.has_dependents = extractedFields.has_dependents
+      }
+      if (extractedFields.owns_home_origin !== undefined) {
+        updated.owns_home_origin = extractedFields.owns_home_origin
+      }
+      if (extractedFields.home_disposition) {
+        updated.home_disposition = extractedFields.home_disposition
+      }
+      if (extractedFields.owns_home_destination !== undefined) {
+        updated.owns_home_destination = extractedFields.owns_home_destination
+      }
+      if (extractedFields.employment_type) {
+        updated.employment_type = extractedFields.employment_type
+      }
+      if (extractedFields.employer_country) {
+        updated.employer_country = extractedFields.employer_country
+      }
+      if (extractedFields.annual_income) {
+        updated.annual_income = String(extractedFields.annual_income)
+      }
+
+      return updated
+    })
+
+    // Clear any previous errors
+    setError(null)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -76,6 +134,10 @@ export default function AnalysisPage() {
         <p className="text-muted-foreground">
           AI-powered analysis for cross-border tax residency determination
         </p>
+      </div>
+
+      <div className="mb-6">
+        <FileUpload onFieldsExtracted={handleFieldsExtracted} />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
